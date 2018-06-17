@@ -1,5 +1,5 @@
 # saucenao-go
-A wrapper for the SauceNao API in Golang.
+A wrapper for the [SauceNao](https://saucenao.com/) API in Golang.
 
 Use `go get github.com/GenDoNL/saucenao-go` to install.
 
@@ -18,4 +18,4 @@ result.Data[0].Data.ExtUrls[0]
 ```
 
 ## Limitations
-  -  This wrapper currently only supports Pixiv and Danbooru. While these suited my purpose, the wrapper could easily be extended to support other source websites. They can be added in the `SaucenaoResultData` struct.
+  -  This wrapper currently only supports saucenao output of Pixiv and Danbooru. While these suited my own purposes, the wrapper could easily be extended to support other source websites. The fields, which can be found in the JSON of the response object, can be added in the `SaucenaoResultData` struct.
