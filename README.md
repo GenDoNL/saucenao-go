@@ -19,4 +19,4 @@ result.Data[0].Data.ExtUrls[0]
 
 ## Limitations
   -  This wrapper currently only supports saucenao output of Pixiv and Danbooru. While these suited my own purposes, the wrapper could easily be extended to support other source websites. The fields, which can be found in the JSON of the response object, can be added in the `SaucenaoResultData` struct.
-  -  Currently it is only possible to provide URLs as input. Support for `image` of the standard library might be added somewhere in the near future. As a workaround, you could use one of the various imgur wrappers for Go to get an URL for your image.
+  -  Currently it is only possible to provide URLs as input. Support for `image` of the standard library might be added somewhere in the near future. As a workaround, you could use one of the various imgur wrappers for Go to get a URL for your image.
