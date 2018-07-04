@@ -1,8 +1,8 @@
 package saucenao
 
 import (
+
 	"encoding/json"
-	"github.com/google/logger"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -14,7 +14,7 @@ type SaucenaoClient struct {
 	APIKey            string
 	MinimumSimularity int
 	DatabaseBitmask   int
-	Logger            *logger.Logger
+	AmountOfResults	  int
 }
 
 // The result struct, the result of the query is directly parsed into this struct.
@@ -82,6 +82,7 @@ func New(APIKey string) (s *SaucenaoClient) {
 		APIKey:            APIKey,
 		MinimumSimularity: 80,
 		DatabaseBitmask:   999,
+		AmountOfResults:   5,
 	}
 
 	return
@@ -93,8 +94,9 @@ func (s SaucenaoClient) FromURL(imageurl string) (res SaucenaoResult, err error)
 	parsedUrl, _ := url.Parse("http://saucenao.com/search.php")
 	queryString := parsedUrl.Query()
 
-	queryString.Set("output_type", "2")
-	queryString.Set("numres", "5")
+	jsonOutput := "2"
+	queryString.Set("output_type", jsonOutput)
+	queryString.Set("numres", strconv.Itoa(s.AmountOfResults))
 	queryString.Set("minsim", strconv.Itoa(s.MinimumSimularity))
 	queryString.Set("dbmask", strconv.Itoa(s.DatabaseBitmask))
 	queryString.Set("api_key", s.APIKey)
